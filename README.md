@@ -96,15 +96,12 @@ What would you do if you had data that doesn't change often but it's used pretty
 For data that doesn't change often but is frequently accessed, implementing a caching strategy is often the best approach. Caching involves storing data in a fast-access data store after the first retrieval so that future requests for the data can be served quickly, without the need for repeated database queries.
 
 There are several caching strategies to consider:
-1.  **In-Memory Caching**
-    
-2.  **Distributed Caching**
-    
-3.  **Persistent Caching**
-    
-4.  **Cache Invalidation**
-    
-5.  **CDN Caching**
+
+1. **In-Memory Caching**: Storing data directly in the application's memory can significantly speed up access. Technologies like Redis, Memcached, or even in-process caching with a tool like MemoryCache in .NET can be used.
+2. **Distributed Caching**: For applications that scale horizontally across multiple servers, a distributed cache ensures that cached data is available to all instances of the application. This approach is beneficial for cloud-native applications that require high availability and scalability.
+3. **Persistent Caching**: Sometimes data might need to be cached for longer periods and should persist beyond application restarts. In such cases, using a persistent store like a file-based cache or a database can be suitable.
+4. **Cache Invalidation**: It’s crucial to have a strategy for invalidating the cache when the data finally does change. This can be done through expiration policies, version tags, or event-driven cache refreshes.
+5. **CDN Caching**: For web applications, static data such as images, CSS, and JavaScript files can be cached in a Content Delivery Network (CDN) to improve load times for users across different geographical locations.
 
 Caching can reduce the load on the database, decrease latency, and improve the overall responsiveness of an application.
 
